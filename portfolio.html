@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Sprojectxx</title>
+    <meta name="description"
+        content="Browse Sprojectxx's portfolio of aesthetic, minimalistic websites built for cafes and restaurants." />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .filter-bar {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: 1px solid rgba(200, 169, 110, 0.25);
+            background: transparent;
+            color: var(--taupe);
+            cursor: pointer;
+            transition: var(--trans);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--espresso);
+            border-color: var(--espresso);
+            color: var(--cream);
+        }
+
+        .portfolio-full {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .pf-card {
+            position: relative;
+            overflow: hidden;
+            background: var(--warm);
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .pf-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .pf-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .pf-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(30, 28, 26, 0.9) 0%, transparent 55%);
+            opacity: 0;
+            transition: opacity var(--trans);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.8rem;
+        }
+
+        .pf-card:hover .pf-overlay {
+            opacity: 1;
+        }
+
+        .pf-tag {
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .pf-name {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            color: var(--cream);
+            font-weight: 300;
+        }
+
+        .pf-desc {
+            font-size: 0.78rem;
+            color: rgba(245, 240, 232, 0.6);
+            margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .pf-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-top: 1rem;
+            transition: gap var(--trans);
+        }
+
+        .pf-link:hover {
+            gap: 0.8rem;
+        }
+
+        .pf-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--warm) 0%, var(--sand) 100%);
+        }
+
+        .pf-placeholder-inner {
+            text-align: center;
+        }
+
+        .pf-ph-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 0.8rem;
+            color: rgba(46, 36, 32, 0.2);
+        }
+
+        .pf-ph-text {
+            font-family: var(--serif);
+            font-size: 1rem;
+            color: rgba(46, 36, 32, 0.3);
+        }
+
+        @media(max-width:900px) {
+            .portfolio-full {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:600px) {
+            .portfolio-full {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>" />
+</head>
+
+<body>
+
+    <div class="loader" id="loader">
+        <div class="loader-text">
+            <span>P</span><span>o</span><span>r</span><span>t</span><span>f</span><span>o</span><span>l</span><span>i</span><span>o</span>
+        </div>
+    </div>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <nav class="nav scrolled" id="nav">
+        <a href="index.html" class="nav-logo">S<span>project</span>xx</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html" class="nav-cta btn"><span>Get Free Site</span></a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Portfolio</span>
+            </div>
+            <h1 class="heading-xl reveal">
+                Crafted With<br><em>Intention</em>
+            </h1>
+            <p class="subtext reveal reveal-delay-1">
+                Every project is a unique story — told through beautiful typography, intentional whitespace, and a
+                design that feels unmistakably yours.
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter + Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="reveal">
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="cafe">Cafes</button>
+                    <button class="filter-btn" data-filter="restaurant">Restaurants</button>
+                    <button class="filter-btn" data-filter="brand">Brand Identity</button>
+                </div>
+            </div>
+
+            <div class="portfolio-full reveal" id="portfolioGrid">
+                <!-- Project 1 -->
+                <div class="pf-card" data-cat="cafe">
+                    <div class="pf-placeholder">
+                        <div class="pf-placeholder-inner">
+                            <svg class="pf-ph-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1">
+                                <path d="M18 8h1a4 4 0 010 8h-1" />
+                                <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z" />
+                                <line x1="6" y1="1" x2="6" y2="4" />
+                                <line x1="10" y1="1" x2="10" y2="4" />
+                                <line x1="14" y1="1" x2="14" y2="4" />
+                            </svg>
+                            <div class="pf-ph-text">Brew &amp; Bloom Café</div>
+                        </div>
+                    </div>
+                    <div class="pf-overlay">
+                        <div class="pf-tag">Cafe Website</div>
+                        <div class="pf-name">Brew &amp; Bloom Café</div>
+                        <div class="pf-desc">Warm, earthy tones &amp; minimal layout for a cozy neighborhood coffee
+                            house.</div>
+                        <a href="#" class="pf-link">View Project <svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="pf-card" data-cat="restaurant">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80"
+                        alt="Velvet Bistro" loading="lazy" />
+                    <div class="pf-overlay">
+                        <div class="pf-tag">Restaurant Website</div>
+                        <div class="pf-name">Velvet Bistro</div>
+                        <div class="pf-desc">Upscale dining website with dark, moody aesthetic and cinematic food
+                            photography.</div>
+                        <a href="#" class="pf-link">View Project <svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="pf-card" data-cat="cafe">
+                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=80" alt="Stone & Sip"
+                        loading="lazy" />
+                    <div class="pf-overlay">
+                        <div class="pf-tag">Cafe Website</div>
+                        <div class="pf-name">Stone &amp; Sip</div>
+                        <div class="pf-desc">Industrial minimalism meets warm hospitality for an artisan espresso bar.
+                        </div>
+                        <a href="#" class="pf-link">View Project <svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="pf-card" data-cat="brand">
+                    <div class="pf-placeholder" style="background:linear-gradient(135deg,#2e2420 0%,#3d2e28 100%)">
+                        <div class="pf-placeholder-inner">
+                            <svg class="pf-ph-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="rgba(200,169,110,0.4)" stroke-width="1">
+                                <path d="M3 11l19-9-9 19-2-8-8-2z" />
+                            </svg>
+                            <div class="pf-ph-text" style="color:rgba(200,169,110,0.4)">Nomad Roasters</div>
+                        </div>
+                    </div>
+                    <div class="pf-overlay">
+                        <div class="pf-tag">Brand Identity</div>
+                        <div class="pf-name">Nomad Roasters</div>
+                        <div class="pf-desc">Full brand identity &amp; website for a specialty coffee roastery with
+                            global influence.</div>
+                        <a href="#" class="pf-link">View Project <svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="pf-card" data-cat="restaurant">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80"
+                        alt="Maison Table" loading="lazy" />
+                    <div class="pf-overlay">
+                        <div class="pf-tag">Restaurant Website</div>
+                        <div class="pf-name">Maison Table</div>
+                        <div class="pf-desc">French fine dining with clean typography, luxe cream palette and elegant
+                            menu presentation.</div>
+                        <a href="#" class="pf-link">View Project <svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="pf-card" data-cat="cafe">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80" alt="Dawn Drip"
+                        loading="lazy" />
+                    <div class="pf-overlay">
+                        <div class="pf-tag">Cafe Website</div>
+                        <div class="pf-name">Dawn Drip Coffee</div>
+                        <div class="pf-desc">Bright, airy aesthetic with soft morning vibes — designed for a boutique
+                            pour-over cafe.</div>
+                        <a href="#" class="pf-link">View Project <svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="pf-card" data-cat="brand">
+                    <div class="pf-placeholder" style="background:linear-gradient(135deg,#8a9e8b,#c9b99a)">
+                        <div class="pf-placeholder-inner">
+                            <svg class="pf-ph-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="rgba(255,255,255,0.5)" stroke-width="1">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <div class="pf-ph-text" style="color:rgba(255,255,255,0.6)">Sage Garden</div>
+                        </div>
+                    </div>
+                    <div class="pf-overlay">
+                        <div class="pf-tag">Brand + Website</div>
+                        <div class="pf-name">Sage Garden Bistro</div>
+                        <div class="pf-desc">Botanical branding and online presence for a farm-to-table garden bistro.
+                        </div>
+                        <a href="#" class="pf-link">View Project <svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="pf-card" data-cat="restaurant">
+                    <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600&q=80" alt="Ember"
+                        loading="lazy" />
+                    <div class="pf-overlay">
+                        <div class="pf-tag">Restaurant Website</div>
+                        <div class="pf-name">Ember</div>
+                        <div class="pf-desc">Bold, dramatic design for a contemporary grill house — deep charcoal tones
+                            and fiery accents.</div>
+                        <a href="#" class="pf-link">View Project <svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                <!-- Project 9 -->
+                <div class="pf-card" data-cat="cafe">
+                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&q=80" alt="Petal & Press"
+                        loading="lazy" />
+                    <div class="pf-overlay">
+                        <div class="pf-tag">Cafe Website</div>
+                        <div class="pf-name">Petal &amp; Press</div>
+                        <div class="pf-desc">Floral minimalism for a cafe with a focus on teas, light bites, and slow
+                            mornings.</div>
+                        <a href="#" class="pf-link">View Project <svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Start Your Project -->
+    <section class="section" style="background:var(--warm)">
+        <div class="container">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center">
+                <div class="reveal">
+                    <div class="label">Your Project</div>
+                    <h2 class="heading-lg">Could Your Cafe Be<br><em
+                            style="font-style:italic;color:var(--accent)">Next?</em></h2>
+                    <p class="subtext" style="margin-top:1.5rem;margin-bottom:2.5rem">
+                        Every project in this portfolio started with a simple conversation. Your cafe's digital story is
+                        waiting to be told. And we'll build it — for free.
+                    </p>
+                    <a href="contact.html" class="btn btn-dark">
+                        <span>Start Your Project</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="reveal reveal-delay-2">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+                        <div style="aspect-ratio:3/4;overflow:hidden;background:var(--sand)">
+                            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&q=80"
+                                style="width:100%;height:100%;object-fit:cover" alt="" loading="lazy" />
+                        </div>
+                        <div style="aspect-ratio:3/4;overflow:hidden;background:var(--sand);margin-top:2rem">
+                            <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=400&q=80"
+                                style="width:100%;height:100%;object-fit:cover" alt="" loading="lazy" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="reveal">
+                <div class="label" style="justify-content:center">Get Started</div>
+                <h2 class="heading-xl">
+                    Your Free Website<br>
+                    Starts <em>Today</em>
+                </h2>
+                <p class="cta-sub">Join the growing list of cafes &amp; restaurants with beautiful digital homes.</p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-accent">
+                        <span>Get Free Website</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="services.html" class="btn btn-outline"
+                        style="border-color:rgba(245,240,232,0.3);color:var(--cream)">
+                        <span>See Plans</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">S<span>project</span>xx</a>
+                    <p class="footer-about">A creative web design studio crafting aesthetic, minimalistic websites for
+                        cafes and restaurants.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-btn" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg></a>
+                        <a href="#" class="social-btn" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 2.18 2 2 0 012.5.5h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8a16 16 0 006.09 6.09l.75-.75a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-heading">Navigation</div>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-heading">Services</div>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Free Starter Plan</a></li>
+                        <li><a href="services.html">Premium Upgrade</a></li>
+                        <li><a href="services.html">Custom Domain</a></li>
+                        <li><a href="services.html">SEO Optimization</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-heading">Get In Touch</div>
+                    <a href="mailto:hello@sprojectxx.com" class="footer-contact-item"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>hello@sprojectxx.com</a>
+                    <a href="https://wa.me/0000000000" class="footer-contact-item"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 2.18 2 2 0 012.5.5h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8a16 16 0 006.09 6.09l.75-.75a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                        </svg>WhatsApp Us</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2025 Sprojectxx. All rights reserved.</p>
+                <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Portfolio filter
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.pf-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.cat === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

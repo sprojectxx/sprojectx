@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services — Sprojectxx</title>
+    <meta name="description"
+        content="Sprojectxx offers a free starter website and a premium upgrade plan for cafes and restaurants. Start free, grow when ready." />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>" />
+</head>
+
+<body>
+
+    <div class="loader" id="loader">
+        <div class="loader-text">
+            <span>S</span><span>e</span><span>r</span><span>v</span><span>i</span><span>c</span><span>e</span><span>s</span>
+        </div>
+    </div>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <nav class="nav scrolled" id="nav">
+        <a href="index.html" class="nav-logo">S<span>project</span>xx</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html" class="nav-cta btn"><span>Get Free Site</span></a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Services</span>
+            </div>
+            <h1 class="heading-xl reveal">
+                Plans Built for<br><em>Hospitality</em> Brands
+            </h1>
+            <p class="subtext reveal reveal-delay-1">
+                Two transparent plans. Start completely free — no catch, no credit card. Upgrade only when you're ready
+                to scale.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="section">
+        <div class="container">
+            <div class="reveal" style="text-align:center;max-width:500px;margin:0 auto 1rem">
+                <div class="label" style="justify-content:center">Pricing</div>
+                <h2 class="heading-lg">Simple, Transparent<br><em
+                        style="font-style:italic;color:var(--accent)">Pricing</em></h2>
+            </div>
+            <p style="text-align:center;font-size:0.82rem;color:var(--taupe);margin-bottom:4rem" class="reveal">"We
+                build your website for FREE. You only pay when you love it."</p>
+
+            <div class="pricing-grid reveal">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <div class="service-badge">Free Forever</div>
+                    <div class="label">Starter Plan</div>
+                    <h3 class="heading-md">Free Website</h3>
+                    <p class="subtext" style="margin-top:0.5rem">A beautiful, fully-functional static website — zero
+                        cost, zero commitment.</p>
+                    <div class="price">
+                        <span class="price-currency">₹</span>
+                        <span class="price-amount">0</span>
+                        <span class="price-period">/ forever</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feat-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Custom-designed static website
+                        </li>
+                        <li class="pricing-feat-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Aesthetic and minimal UI
+                        </li>
+                        <li class="pricing-feat-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Mobile-responsive design
+                        </li>
+                        <li class="pricing-feat-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Menu &amp; contact section
+                        </li>
+                        <li class="pricing-feat-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Free hosting (Vercel / GitHub Pages)
+                        </li>
+                        <li class="pricing-feat-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Delivered in 3–5 business days
+                        </li>
+                        <li class="pricing-feat-item" style="opacity:0.35">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg>
+                            Custom domain
+                        </li>
+                        <li class="pricing-feat-item" style="opacity:0.35">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg>
+                            WhatsApp integration
+                        </li>
+                        <li class="pricing-feat-item" style="opacity:0.35">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg>
+                            SEO optimization
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-dark" style="width:100%;justify-content:center">
+                        <span>Get Free Website</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="label">Premium Upgrade</div>
+                    <h3 class="heading-md" style="color:var(--cream)">Full Experience</h3>
+                    <p class="subtext" style="color:rgba(245,240,232,0.5);margin-top:0.5rem">Everything in Free, plus
+                        advanced features to grow your digital presence.</p>
+                    <div class="price">
+                        <span class="price-currency" style="color:rgba(245,240,232,0.5)">Contact for</span>
+                        &nbsp;
+                        <span class="price-amount" style="color:var(--accent);font-size:2.5rem">Pricing</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feat-item" style="color:rgba(245,240,232,0.7)">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Everything in Free Plan
+                        </li>
+                        <li class="pricing-feat-item" style="color:rgba(245,240,232,0.7)">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Custom domain setup
+                        </li>
+                        <li class="pricing-feat-item" style="color:rgba(245,240,232,0.7)">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Advanced UI/UX enhancements
+                        </li>
+                        <li class="pricing-feat-item" style="color:rgba(245,240,232,0.7)">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            WhatsApp integration
+                        </li>
+                        <li class="pricing-feat-item" style="color:rgba(245,240,232,0.7)">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Online menu system
+                        </li>
+                        <li class="pricing-feat-item" style="color:rgba(245,240,232,0.7)">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            SEO &amp; Google Maps visibility
+                        </li>
+                        <li class="pricing-feat-item" style="color:rgba(245,240,232,0.7)">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Performance optimization
+                        </li>
+                        <li class="pricing-feat-item" style="color:rgba(245,240,232,0.7)">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Ongoing maintenance &amp; support
+                        </li>
+                        <li class="pricing-feat-item" style="color:rgba(245,240,232,0.7)">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Priority response &amp; updates
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-accent" style="width:100%;justify-content:center">
+                        <span>Upgrade Now</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Breakdown -->
+    <section class="section" style="background:var(--warm)">
+        <div class="container">
+            <div class="reveal" style="text-align:center;max-width:500px;margin:0 auto">
+                <div class="label" style="justify-content:center">What's Included</div>
+                <h2 class="heading-lg">Every Feature,<br><em
+                        style="font-style:italic;color:var(--accent)">Explained</em></h2>
+            </div>
+
+            <div class="services-grid reveal" style="margin-top:4rem">
+                <div class="service-card">
+                    <div class="service-num">01</div>
+                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <path d="M9 9h6M9 13h4" />
+                    </svg>
+                    <h3 class="heading-md">Custom Design</h3>
+                    <p class="subtext">No templates. Every website is designed from scratch based on your cafe's unique
+                        brand, color palette, and personality.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-num">02</div>
+                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.2">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                        <line x1="12" y1="18" x2="12.01" y2="18" />
+                    </svg>
+                    <h3 class="heading-md">Mobile-Responsive</h3>
+                    <p class="subtext">Built mobile-first. Your site looks and performs perfectly on phones, tablets,
+                        and desktops — across all screen sizes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-num">03</div>
+                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.2">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <h3 class="heading-md">Fast Delivery</h3>
+                    <p class="subtext">We deliver your complete website within 3–5 business days from receiving your
+                        brand details and content.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-num">04</div>
+                    <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <h3 class="heading-md">SEO &amp; Google Maps</h3>
+                    <p class="subtext">Premium clients get full on-page SEO optimization plus Google My Business setup
+                        to boost local discovery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section how-bg">
+        <div class="container">
+            <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto">
+                <div class="label" style="justify-content:center">The Process</div>
+                <h2 class="heading-lg" style="color:var(--cream)">From Contact to<br><em
+                        style="color:var(--accent);font-style:italic">Live Website</em></h2>
+            </div>
+
+            <div class="steps-row reveal reveal-delay-1">
+                <div class="step">
+                    <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 2.18 2 2 0 012.5.5h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8a16 16 0 006.09 6.09l.75-.75a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                        </svg></div>
+                    <div class="step-num">01</div>
+                    <div class="step-title">Contact Us</div>
+                    <div class="step-desc">Reach out via WhatsApp or email to start a conversation.</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                        </svg></div>
+                    <div class="step-num">02</div>
+                    <div class="step-title">Share Details</div>
+                    <div class="step-desc">Tell us about your cafe, brand vision &amp; style preferences.</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg></div>
+                    <div class="step-num">03</div>
+                    <div class="step-title">We Design</div>
+                    <div class="step-desc">Our team crafts your aesthetic website — completely FREE.</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg></div>
+                    <div class="step-num">04</div>
+                    <div class="step-title">Review &amp; Approve</div>
+                    <div class="step-desc">Preview your site and request revisions until perfect.</div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg></div>
+                    <div class="step-num">05</div>
+                    <div class="step-title">Go Live</div>
+                    <div class="step-desc">Your free site launches. Upgrade anytime for premium features.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:6rem;align-items:start">
+                <div class="reveal">
+                    <div class="label">FAQ</div>
+                    <h2 class="heading-lg">Common<br><em style="font-style:italic;color:var(--accent)">Questions</em>
+                    </h2>
+                    <p class="subtext" style="margin-top:1.5rem">Still unsure? Reach out — we're happy to answer
+                        anything.</p>
+                    <a href="contact.html" class="btn btn-dark" style="margin-top:2rem">
+                        <span>Ask Us Anything</span>
+                    </a>
+                </div>
+                <div class="reveal reveal-delay-2">
+                    <div id="faqList">
+                        <div class="faq-item" style="border-bottom:1px solid rgba(200,169,110,0.15);padding:1.8rem 0">
+                            <div class="faq-q"
+                                style="font-family:var(--serif);font-size:1.1rem;color:var(--espresso);cursor:pointer;display:flex;justify-content:space-between;align-items:center">
+                                Is the free website really free?
+                                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="var(--accent)" stroke-width="1.5">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </div>
+                            <div class="faq-a"
+                                style="font-size:0.85rem;color:var(--taupe);margin-top:1rem;line-height:1.8;display:none">
+                                Yes, 100% free. We design and deliver a custom static website at no charge. The only
+                                thing you need to provide is your brand details and content.
+                            </div>
+                        </div>
+                        <div class="faq-item" style="border-bottom:1px solid rgba(200,169,110,0.15);padding:1.8rem 0">
+                            <div class="faq-q"
+                                style="font-family:var(--serif);font-size:1.1rem;color:var(--espresso);cursor:pointer;display:flex;justify-content:space-between;align-items:center">
+                                What's the catch with the free plan?
+                                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="var(--accent)" stroke-width="1.5">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </div>
+                            <div class="faq-a"
+                                style="font-size:0.85rem;color:var(--taupe);margin-top:1rem;line-height:1.8;display:none">
+                                There's no catch. The free website will be hosted on a Vercel subdomain (e.g.
+                                yourcafe.vercel.app). If you want your own custom domain and advanced features, that's
+                                the premium upgrade.
+                            </div>
+                        </div>
+                        <div class="faq-item" style="border-bottom:1px solid rgba(200,169,110,0.15);padding:1.8rem 0">
+                            <div class="faq-q"
+                                style="font-family:var(--serif);font-size:1.1rem;color:var(--espresso);cursor:pointer;display:flex;justify-content:space-between;align-items:center">
+                                How long does it take to build?
+                                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="var(--accent)" stroke-width="1.5">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </div>
+                            <div class="faq-a"
+                                style="font-size:0.85rem;color:var(--taupe);margin-top:1rem;line-height:1.8;display:none">
+                                We deliver your website in 3–5 business days from receiving your complete brand details,
+                                logo, and any content you want included.
+                            </div>
+                        </div>
+                        <div class="faq-item" style="border-bottom:1px solid rgba(200,169,110,0.15);padding:1.8rem 0">
+                            <div class="faq-q"
+                                style="font-family:var(--serif);font-size:1.1rem;color:var(--espresso);cursor:pointer;display:flex;justify-content:space-between;align-items:center">
+                                Can I request revisions?
+                                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="var(--accent)" stroke-width="1.5">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </div>
+                            <div class="faq-a"
+                                style="font-size:0.85rem;color:var(--taupe);margin-top:1rem;line-height:1.8;display:none">
+                                Yes. We offer up to 2 rounds of revisions on the free plan and unlimited revisions on
+                                the premium plan. Your satisfaction is our priority.
+                            </div>
+                        </div>
+                        <div class="faq-item" style="padding:1.8rem 0">
+                            <div class="faq-q"
+                                style="font-family:var(--serif);font-size:1.1rem;color:var(--espresso);cursor:pointer;display:flex;justify-content:space-between;align-items:center">
+                                Do I need to provide content?
+                                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="var(--accent)" stroke-width="1.5">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </div>
+                            <div class="faq-a"
+                                style="font-size:0.85rem;color:var(--taupe);margin-top:1rem;line-height:1.8;display:none">
+                                Ideally yes — your logo, images, menu, and a short description. But if you don't have
+                                these, we can work with placeholder content and update later.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="reveal">
+                <div class="label" style="justify-content:center">Zero Risk</div>
+                <h2 class="heading-xl">
+                    Start Your Project<br>
+                    <em>Today — Free</em>
+                </h2>
+                <p class="cta-sub">No credit card. No contracts. Just a beautiful website for your cafe.</p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-accent">
+                        <span>Get Free Website</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">S<span>project</span>xx</a>
+                    <p class="footer-about">A creative web design studio crafting aesthetic, minimalistic websites for
+                        cafes and restaurants.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-btn" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg></a>
+                        <a href="#" class="social-btn" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 2.18 2 2 0 012.5.5h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8a16 16 0 006.09 6.09l.75-.75a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-heading">Navigation</div>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-heading">Services</div>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Free Starter Plan</a></li>
+                        <li><a href="services.html">Premium Upgrade</a></li>
+                        <li><a href="services.html">Custom Domain</a></li>
+                        <li><a href="services.html">SEO Optimization</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-heading">Get In Touch</div>
+                    <a href="mailto:hello@sprojectxx.com" class="footer-contact-item"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>hello@sprojectxx.com</a>
+                    <a href="https://wa.me/0000000000" class="footer-contact-item"><svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 2.18 2 2 0 012.5.5h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8a16 16 0 006.09 6.09l.75-.75a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                        </svg>WhatsApp Us</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2025 Sprojectxx. All rights reserved.</p>
+                <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
