@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sprojectx.vercel.app/sitemap.xml
